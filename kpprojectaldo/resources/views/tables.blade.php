@@ -109,9 +109,14 @@
                                                 <td>{{ $vendorNames[$i] }}</td>
                                                 <td>
                                                     <form action="{{ action('ParameterVendor@index')}}" method="get">
+                                                    @if($kerjasamaDetail[$i]->ratarata ==  null)
                                                     <button type="submit" class="btn btn-outline btn-success" style="height: 40px; width: 150px">Input Parameter
                                                     </button>
                                                     <input type="hidden" name="kerjasamaId" value="{{$kerjasamaDetail[$i]->id}}">
+                                                    @else
+                                                    <button type="button" class="btn-default btn-circle" disabled="disabled" style="height: 40px; width: 150px"><i class="fa fa-check">Done</i>
+                                                    </button>
+                                                    @endif
                                                     </form>
                                                     <div class="form-group">
                                                     <label></label>
