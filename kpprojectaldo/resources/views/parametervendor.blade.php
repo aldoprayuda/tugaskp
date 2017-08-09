@@ -15,6 +15,12 @@
         <!-- MetisMenu CSS -->
         <link href="../css/metisMenu.min.css" rel="stylesheet">
 
+        <!-- DataTables CSS -->
+        <link href="../css/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+        <!-- DataTables Responsive CSS -->
+        <link href="../css/dataTables/dataTables.responsive.css" rel="stylesheet">
+
         <!-- Custom CSS -->
         <link href="../css/startmin.css" rel="stylesheet">
 
@@ -35,7 +41,7 @@
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">PosLogistik</a>
+                    <a class="navbar-brand" href="homehome">PosLogistik</a>
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -45,66 +51,12 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <ul class="nav navbar-nav navbar-left navbar-top-links">
+                <!-- <ul class="nav navbar-nav navbar-left navbar-top-links">
                     <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
-                </ul>
+                </ul> -->
 
                 <ul class="nav navbar-right navbar-top-links">
-                    <!-- <li class="dropdown navbar-inverse">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-alerts">
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-comment fa-fw"></i> New Comment
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                        <span class="pull-right text-muted small">12 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-tasks fa-fw"></i> New Task
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a class="text-center" href="#">
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li> -->
-                    <li class="dropdown">
+                   <!--  <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
                         </a>
@@ -117,12 +69,11 @@
                             <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
                 <!-- /.navbar-top-links -->
 
-                @include('sidebar')
-
+                 @include ('sidebar')
                 <!-- /.navbar-static-side -->
             </nav>
 
@@ -141,107 +92,111 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form role="form">
-                                            
-                                             <div class="label">
+                                        <form action="{{ action('ParameterVendor@store')}}" method="post">
+                                        {{ csrf_field() }}
+                                            <div class="label">
                                                 <i class="fa fa-bar-chart-o fa-fw"></i> 
                                             </div>
                                             <div class="form-group">
                                                 <label>Nama Vendor</label>
-                                                <a class="form-control">{{$objectParameter[0]->name}}</a>
+                                                <label>{{$nameVendor}}</label>
                                             </div>
-                                            <!-- <div class="form-group">
-                                                <label></label>
-                                            </div> -->
                                             <div class="form-group">
                                                 <label>Parameter Vendor</label>
-                                                
                                             </div>
                                             <div class="form-group">
-                                                <label>Quality</label>
-                                                <input class="form-control" placeholder="Enter number" style="width: 35%">
+                                            <div class="col-lg-6">
+                                                <label>Quality</label> 
+                                                <input class="form-control" name="quality" placeholder="Enter number" style="width: 35%">
+                                            </div>
                                             </div>
                                             <div class="form-group">
+                                            <div class="col-lg-6">
+                                                <label>Persentase</label> 
+                                                <input class="form-control" name="persentasequality" placeholder="Enter number" style="width: 35%">
+                                            </div>
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-lg-6">
                                                 <label>Delivery</label>
-                                                <input class="form-control" placeholder="Enter number" style="width: 35%">
+                                                <input class="form-control" name="delivery" placeholder="Enter number" style="width: 35%">
+                                            </div>
                                             </div>
                                             <div class="form-group">
+                                            <div class="col-lg-6">
+                                                <label>Persentase</label> 
+                                                <input class="form-control" name="persentasedelivery" placeholder="Enter number" style="width: 35%">
+                                            </div>
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-lg-6">
                                                 <label>Services</label>
-                                                <input class="form-control" placeholder="Enter number" style="width: 35%">
+                                                <input class="form-control" name="services" placeholder="Enter number" style="width: 35%">
+                                            </div>
                                             </div>
                                             <div class="form-group">
+                                            <div class="col-lg-6">
+                                                <label>Persentase</label> 
+                                                <input class="form-control" name="persentaseservices" placeholder="Enter number" style="width: 35%">
+                                            </div>
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-lg-6">
                                                 <label>Price</label>
-                                                <input class="form-control" placeholder="Enter number" style="width: 35%";>
+                                                <input class="form-control" name="price" placeholder="Enter number" style="width: 35%";>
+                                            </div>
                                             </div>
                                             <div class="form-group">
+                                            <div class="col-lg-6">
+                                                <label>Persentase</label> 
+                                                <input class="form-control" name="persentaseprice" placeholder="Enter number" style="width: 35%">
+                                            </div>
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-lg-6">
                                                 <label>HSE</label>
-                                                <input class="form-control" placeholder="Enter number" style="width: 35%">
+                                                <input class="form-control" name="hse" placeholder="Enter number" style="width: 35%">
+                                            </div>
                                             </div>
                                             <div class="form-group">
+                                            <div class="col-lg-6">
+                                                <label>Persentase</label> 
+                                                <input class="form-control" name="persentasehse" placeholder="Enter number" style="width: 35%">
+                                            </div>
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-lg-6">
                                                 <label>Policy</label>
-                                                <input class="form-control" placeholder="Enter number" style="width: 35%">
+                                                <input class="form-control" name="policy" placeholder="Enter number" style="width: 35%">
+                                            </div>
                                             </div>
                                             <div class="form-group">
+                                            <div class="col-lg-6">
+                                                <label>Persentase</label> 
+                                                <input class="form-control" name="persentasepolicy" placeholder="Enter number" style="width: 35%">
+                                            </div>
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-lg-6">
+                                                <label></label>
+                                            </div> 
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-lg-6">
+                                                <label></label>
+                                            </div> 
+                                            </div>
+                                            <div class="form-group">
+                                            <div class="col-lg-6">
                                                 <label>Kerjasama_id</label>
-                                                <input class="form-control" placeholder="Enter number" style="width: 35%">
-                                            </div>    
-                                            <button type="submit" class="pull-right" class="btn btn-default">Input</button>
-                                            
-                                            <!-- <div class="form-group">
-                                                <label>File input</label>
-                                                <input type="file">
-                                            </div> -->
-                                            
-                                            <!-- </div>
-                                            <div class="form-group">
-                                                <label>Checkboxes</label>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">Checkbox 1
-                                                    </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">Checkbox 2
-                                                    </label>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" value="">Checkbox 3
-                                                    </label>
-                                                </div>
-                                            </div> -->
-                                            <!-- <div class="form-group">
-                                                <label>Inline Checkboxes</label>
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox">1
+                                                <label><input type="text" name="kerjasama_id" readonly placeholder={{$idKerjasama}} >
                                                 </label>
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox">2
-                                                </label>
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox">3
-                                                </label>
+                                            </div> 
                                             </div>
-                                            <div class="form-group">
-                                                <label>Radio Buttons</label>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Radio 1
-                                                    </label>
-                                                </div> -->
-                                                <!-- < --><!-- div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Radio 2
-                                                    </label>
-                                                </div>
-                                                <div class="radio">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3">Radio 3
-                                                    </label>
-                                                </div>
-                                            </div> -->
-                                           
+
+                                            <button type="submit" class="pull-right" class="btn btn-default">Input
+                                            </button>
+                                            <input type="hidden" name="kerjasamaId" value="{{$idKerjasama}}">
                                         </form>
                                     </div>
                                     <!-- /.col-lg-6 (nested) -->
@@ -270,8 +225,21 @@
         <!-- Metis Menu Plugin JavaScript -->
         <script src="../js/metisMenu.min.js"></script>
 
+        <!-- DataTables JavaScript -->
+        <script src="../js/dataTables/jquery.dataTables.min.js"></script>
+        <script src="../js/dataTables/dataTables.bootstrap.min.js"></script>
+
         <!-- Custom Theme JavaScript -->
         <script src="../js/startmin.js"></script>
+
+        <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+        <script>
+            $(document).ready(function() {
+                $('#dataTables-example').DataTable({
+                        responsive: true
+                });
+            });
+        </script>
 
     </body>
 </html>

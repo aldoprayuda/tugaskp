@@ -21,17 +21,17 @@ class AccController extends Controller
         $arrayVendorId = Input::get('assign');
 
         $customerName = [];
-        $customer = DB::table('Customer')->where('id', '=', $customerId)->pluck('name');
+        $customer = DB::table('Customer')->where('id', '=', $customerId)->pluck('name')->first();
         $customerName[0] = $customer;
         $vendorName = [];
         $counter = 0;
         for ($i=0; $i < count($arrayVendorId); $i++) {
-            $name = DB::table('Vendor')->where('id', '=', $arrayVendorId[$i] )->pluck('name');
+            $name = DB::table('Vendor')->where('id', '=', $arrayVendorId[$i] )->pluck('name')->first();
             $vendorName[$i] = $name;
             $customerName[$i+1] = '';
             $counter++;
         };
-        return view::make('tablesDetail',compact('customerName', 'vendorName', 'counter'));
+        return view::make('tablesDetail',compact('customerName', 'vendorName', 'counter', 'customerId', 'arrayVendorId'));
     }
 
     /**

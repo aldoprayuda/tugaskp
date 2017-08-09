@@ -56,7 +56,7 @@ class InsertVendorController extends Controller
 
         $users = DB::table('Vendor')->where('status', '=', 1)->get();
 
-        return view::make('listvendor',compact('users'));
+        return redirect()->route('vendorlist',compact('users'));
     }
 
     /**
@@ -106,6 +106,10 @@ class InsertVendorController extends Controller
             ->update(['status' => 0]);
 
         $users = DB::table('Vendor')->where('status', '=', 1)->get();
+
+        return redirect()->route('vendorlist',compact('users'));
+
+        
     }
     
 }

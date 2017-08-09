@@ -15,8 +15,8 @@ class LoginSeeder extends Seeder
         DB::table('Login')->insert([
         	'Username' => 'corneliusaldo',
         	'Password' => 'kyubi210596',
-        	'createDate' => Carbon::now()
-        	
+        	'updated_at' => Carbon::now(),
+            'created_at' => Carbon::now()
         ]);
     }
 }

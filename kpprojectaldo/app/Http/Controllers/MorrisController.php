@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Customer;
+use App\Kerjasama;
+use App\Vendor;
+use DB;
+use View;
+use Illuminate\Support\Facades\Input;
+use Carbon\Carbon;
 
 class MorrisController extends Controller
 {
@@ -13,7 +20,8 @@ class MorrisController extends Controller
      */
     public function index()
     {
-        return view('morris');
+        $listCustomer = DB::table('Customer')->where('status', '=', 1)->get();
+        return view('customerforchart', compact('listCustomer'));
     }
 
     /**
@@ -43,9 +51,17 @@ class MorrisController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $idCustomer = Input::get('idCustomer');
+
+        $kerjaSamaCustomerVendor = DB::table('Kerjasama')->where('customer_id', $idCustomer)->where('status',1)->get();
+        for ($i=0; $i < count($kerjaSamaCustomerVendor); $i++) {
+            $vendorName = DB::table('Vendor')->where('id', $kerjaSamaCustomerVendor[$i]->vendor_id)->pluck('name')->first();
+
+            $kerjaSamaCustomerVendor[$i]->vendorName = $vendorName;
+        }
+        return view('morris', compact('kerjaSamaCustomerVendor'));
     }
 
     /**

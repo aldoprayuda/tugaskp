@@ -13,7 +13,7 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href="introduction"><img src="images/homepage_files/2144.png" height="10%" width="10%"> Introduction</a>
+                <a href="homehome"><img src="images/homepage_files/2144.png" height="10%" width="10%"> Home</a>
             </li>
                 
             <li>

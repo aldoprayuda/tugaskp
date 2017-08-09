@@ -41,7 +41,7 @@
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">PosLogistik</a>
+                    <a class="navbar-brand" href="homehome">PosLogistik</a>
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -51,66 +51,12 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <ul class="nav navbar-nav navbar-left navbar-top-links">
+                <!-- <ul class="nav navbar-nav navbar-left navbar-top-links">
                     <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
-                </ul>
+                </ul> -->
 
                 <ul class="nav navbar-right navbar-top-links">
-                    <!-- <li class="dropdown navbar-inverse">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-alerts">
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-comment fa-fw"></i> New Comment
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                        <span class="pull-right text-muted small">12 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-tasks fa-fw"></i> New Task
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a class="text-center" href="#">
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li> -->
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
                         </a>
@@ -123,7 +69,7 @@
                             <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
                 <!-- /.navbar-top-links -->
                 
@@ -177,52 +123,12 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Morris.js Charts</h1>
+                        <h1 class="page-header">Relation Customer-Vendor Chart</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <!-- /.row -->
                 <div class="row">
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Area Chart Example
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div id="morris-area-chart"></div>
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
-                    <!-- /.col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Bar Chart Example
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div id="morris-bar-chart"></div>
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
-                    <!-- /.col-lg-6 -->
-                    <div class="col-lg-6">
-                        <div class="panel panel-default">
-                            
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <div id="morris-line-chart"></div>
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
-                    <!-- /.col-lg-6 -->
                     <div class="col-lg-6">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -236,22 +142,6 @@
                         </div>
                         <!-- /.panel -->
                     </div>
-                    <!-- /.col-lg-6 -->
-                    <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Morris.js Usage
-                            </div>
-                            <!-- /.panel-heading -->
-                            <div class="panel-body">
-                                <p>Morris.js is a jQuery based charting plugin created by Olly Smith. In SB Admin, we are using the most recent version of Morris.js which includes the resize function, which makes the charts fully responsive. The documentation for Morris.js is available on their website, <a target="_blank" href="http://morrisjs.github.io/morris.js/">http://morrisjs.github.io/morris.js/</a>.</p>
-                                <a target="_blank" class="btn btn-default btn-lg btn-block" href="http://morrisjs.github.io/morris.js/">View Morris.js Documentation</a>
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
-                    <!-- /.col-lg-6 -->
                 </div>
                 <!-- /.row -->
             </div>
@@ -272,7 +162,39 @@
         <!-- Morris Charts JavaScript -->
         <script src="../js/raphael.min.js"></script>
         <script src="../js/morris.min.js"></script>
-        <script src="../js/morris-data.js"></script>
+        <script>
+        var green = '#00acac';
+        var blue = '#348fe2';
+        var red = '#DC143C';
+        var purple = '9932CC';
+        var orange = '#FFA500';
+
+            Morris.Donut(
+            {
+                element: 'morris-donut-chart',
+                data: [
+                <?php foreach ($kerjaSamaCustomerVendor as $kerjasama): ?>
+                    {
+                        <?php if ($kerjasama->ratarata == null): ?>
+                            label: "{{$kerjasama->vendorName}}",
+                            value: 0
+                        <?php else: ?>
+                            label: "{{$kerjasama->vendorName}}",
+                            value: {{$kerjasama->ratarata}}
+                        <?php endif ?>
+                    },
+
+                <?php endforeach ?>
+
+                ],
+                colors: [green, blue, red, purple, orange],
+                labelFamily: 'Open Sans',
+                labelColor: 'rgba(0,0,0,0.4)',
+                labelTextSize: '12px',
+                backgroundColor: '#242a30',
+                resize: true
+            });
+        </script>
 
         <!-- Custom Theme JavaScript -->
         <script src="../js/startmin.js"></script>

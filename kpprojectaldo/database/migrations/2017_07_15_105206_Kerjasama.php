@@ -20,6 +20,7 @@ class Kerjasama extends Migration
             $table->integer('vendor_id')->unsigned();
             $table->integer('customer_id')->unsigned();
             $table->integer('ratarata')->nullable();
+            $table->boolean('status');
             $table->date('updated_at');
             $table->date('created_at');
 

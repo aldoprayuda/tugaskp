@@ -29,13 +29,54 @@
         <![endif]-->
     </head>
     <body>
-        <form action = "/insert" method="post">
+        <!-- @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif -->
+        @if (($errors->any()) || ($message != null))
+        <div class="row">
+                    <div class="col-lg-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Error
+                            </div>
+                            <!-- /.panel-heading -->
+                            <div class="panel-body">
+                                
+                                <div class="alert alert-warning">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                        @if ($message != null)
+                                            <li>{{ $message }}</li>
+                                        @endif
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                            <!-- .panel-body -->
+                        </div>
+                        <!-- /.panel -->
+                    </div>
+                    <!-- /.col-lg-6 -->
+                    <!-- /.col-lg-6 -->
+                </div>
+
+        @endif
+        <form action="{{ action('LoginController@login')}}" method="post">
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="login-panel panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">Please Sign In</h3>
+                            <h3 class="panel-title" style= "display:inline-block;">Please Sign In</h3>
+                            <h3 class="panel-title" style= "display:inline-block; position:absolute;right:30px"><a href = "{{ route('registeruser.index') }}">Register</a></h3>
                         </div>
                         <div class="panel-body">
                             <form role="form">
@@ -44,15 +85,15 @@
                                         <input class="form-control" placeholder="Username" name="Username" type="Username" autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input name="remember" type="checkbox" value="Remember Me">Remember Me
-                                        </label>
+                                        <input class="form-control" placeholder="Password" name="Password" type="password" value="">
                                     </div>
                                     <!-- Change this to a button or input when using this as a form -->
-                                    <a href="introduction" class="btn btn-lg btn-success btn-block">Login</a>
+                                    <!-- <form action="{{ action('LoginController@login')}}" method="post"> -->
+                                    {{ csrf_field() }}
+                                        <button type="submit" class="btn btn-outline btn-primary btn-lg btn-block" style="height: 40px">Login </button>
+
+
+                                    <!-- </form>  -->              
                                 </fieldset>
                             </form>
                         </div>
@@ -60,6 +101,9 @@
                 </div>
             </div>
         </div>
+        </form>
+
+
 
         <!-- jQuery -->
         <script src="../js/jquery.min.js"></script>

@@ -41,7 +41,7 @@
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">PosLogistik</a>
+                    <a class="navbar-brand" href="homehome">PosLogistik</a>
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -51,9 +51,9 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <ul class="nav navbar-nav navbar-left navbar-top-links">
+                <!-- <ul class="nav navbar-nav navbar-left navbar-top-links">
                     <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
-                </ul>
+                </ul> -->
 
                 <ul class="nav navbar-right navbar-top-links">
                    <!--  <li class="dropdown navbar-inverse">
@@ -110,7 +110,7 @@
                             </li>
                         </ul>
                     </li> -->
-                    <li class="dropdown">
+                   <!--  <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
                         </a>
@@ -123,7 +123,7 @@
                             <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
                 <!-- /.navbar-top-links -->
                 
@@ -171,7 +171,7 @@
                                                     <form action="{{ action('InsertVendorController@destroy', ['vendorId' => $objectUser->id])}}" method="post">
                                                     {{ csrf_field() }}
                                                     {{ method_field('DELETE') }}
-                                                    <button type="submit" class="btn btn-primary btn-lg" style="height: 40px">Delete
+                                                    <button type="submit" class="btn btn-warning" style="height: 40px">Delete
                                                     </button>
                                                     </form>
                                                 </td>
@@ -899,7 +899,21 @@
         <!-- /#wrapper -->
 
         <!-- jQuery -->
+        <script>
+            function myFunction() {
+            var x = confirm("Are you sure want to delete?");
+                <?php if ('x'): ?>
+                    
+                <?php else: ?>
+                    
+                <?php endif ?>
+                    
+                
+        }
+        </script>
+
         <script src="../js/jquery.min.js"></script>
+
 
         <!-- Bootstrap Core JavaScript -->
         <script src="../js/bootstrap.min.js"></script>

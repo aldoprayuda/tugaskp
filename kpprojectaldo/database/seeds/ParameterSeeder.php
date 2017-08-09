@@ -11,15 +11,6 @@ class ParameterSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('Parameter')->insert([
-        	'Quality' => '30',
-        	'Price' => '50',
-        	'Service' => '20',
-        	'Delivery' => '100',
-        	'Policy' => '80',
-        	'HSE' => '50',
-        	'kerjasama_id' => '1'
-    	]);
-    	
+        
     }
 }

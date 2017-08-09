@@ -17,7 +17,9 @@ class Login extends Migration
             $table->increments('id');
             $table->String('Username');
             $table->String('Password');
-            $table->timestamp('createDate');
+            $table->date('updated_at');
+
+            $table->date('created_at');
         });
 
     }

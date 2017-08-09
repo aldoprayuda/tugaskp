@@ -65,7 +65,8 @@ class InsertCustomerController extends Controller
         $users = DB::table('Customer')->where('status', '=', 1)->get();
 
 
-        return view::make('listcustomer',compact('users'));
+        //return view::make('listcustomer',compact('users'));
+        return redirect()->route('listcustomer', compact('users'));
     }
 
     /**
@@ -115,5 +116,8 @@ class InsertCustomerController extends Controller
             ->update(['status' => 0]);
 
         $users = DB::table('Customer')->where('status', '=', 1)->get();
+
+        //return view::make('listcustomer',compact('users'));
+        return redirect()->route('listcustomer', compact('user'));
     }
 }

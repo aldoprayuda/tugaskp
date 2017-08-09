@@ -36,12 +36,14 @@
     </head>
     <body>
 
+
+       
         <div id="wrapper">
 
             <!-- Navigation -->
             <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">PosLogistik</a>
+                    <a class="navbar-brand" href="homehome">PosLogistik</a>
                 </div>
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -51,66 +53,12 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <ul class="nav navbar-nav navbar-left navbar-top-links">
+                <!-- <ul class="nav navbar-nav navbar-left navbar-top-links">
                     <li><a href="#"><i class="fa fa-home fa-fw"></i> Website</a></li>
-                </ul>
+                </ul> -->
 
                 <ul class="nav navbar-right navbar-top-links">
-                    <!-- <li class="dropdown navbar-inverse">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="fa fa-bell fa-fw"></i> <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu dropdown-alerts">
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-comment fa-fw"></i> New Comment
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                        <span class="pull-right text-muted small">12 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-tasks fa-fw"></i> New Task
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                        <span class="pull-right text-muted small">4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a class="text-center" href="#">
-                                    <strong>See All Alerts</strong>
-                                    <i class="fa fa-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li> -->
-                    <li class="dropdown">
+                    <!-- <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                             <i class="fa fa-user fa-fw"></i> secondtruth <b class="caret"></b>
                         </a>
@@ -123,7 +71,7 @@
                             <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
                 <!-- /.navbar-top-links -->
 
@@ -134,10 +82,11 @@
             <div id="page-wrapper">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Database_Vendor</h1>
+                        <h1 class="page-header">Customer-Vendor</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
+
                 <!-- /.row -->
                 <div class="row">
                     <div class="col-lg-14">
@@ -151,9 +100,58 @@
                                                 <th>Customer</th>
                                                 <th>Vendor</th>
                                                 <th>Action</th>
-                                                <th>Average</th>
+                                                <th>Details</th>
                                                 <th>Decision</th>
                                             </tr>
+                                            @for ($i = 0; $i < count($vendorNames); $i++)
+                                            <tr>
+                                                <td>{{ $customerNames[$i] }}</td>
+                                                <td>{{ $vendorNames[$i] }}</td>
+                                                <td>
+                                                    <form action="{{ action('ParameterVendor@index')}}" method="get">
+                                                    <button type="submit" class="btn btn-outline btn-success" style="height: 40px; width: 150px">Input Parameter
+                                                    </button>
+                                                    <input type="hidden" name="kerjasamaId" value="{{$kerjasamaDetail[$i]->id}}">
+                                                    </form>
+                                                    <div class="form-group">
+                                                    <label></label>
+                                                    <form action="{{ action('ParameterVendor@show')}}" method="get">
+                                                        <button type="submit" class="btn btn-outline btn-warning" style="height: 40px; width: 150px">Edit Parameter
+                                                        </button>
+                                                        <input type="hidden" name="kerjasamaId" value="{{$kerjasamaDetail[$i]->id}}">
+                                                    </form>
+                                                    <div class="form-group">
+                                                    <label></label>
+                                                <form action="{{ action('ParameterVendor@destroy')}}" method="post">
+                                                {{ csrf_field() }}
+                                                    <button type="submit" class="btn btn-outline btn-danger" style="height: 40px; width: 150px">Delete Parameter
+                                                    </button>
+                                                    <input type="hidden" name="kerjasamaId" value="{{$kerjasamaDetail[$i]->id}}">
+                                                </form>
+                                                </td>
+                                                <td>
+                                                <form action="{{ action('DetailKerjaSamaController@index')}}" method="get">
+                                                    <button type="submit" class="btn" style="height: 40px">Hasil Akhir
+                                                    </button>
+                                                    <input type="hidden" name="kerjasamaId" value="{{$kerjasamaDetail[$i]->id}}">
+                                                </form>
+                                                </td>
+                                                <td>
+                                                @if($decision[$i] == null)
+                                                @else
+                                                    @if($decision[$i] <= 20)
+                                                    Change Vendor with another provider
+                                                    @elseif($decision[$i] <= 40)
+                                                    Maintained as vendor but will be evaluated after 6 months
+                                                    @elseif($decision[$i] <= 60)
+                                                    Maintained as vendor but will be evaluated after 3 months
+                                                    @elseif($decision[$i] <= 100)
+                                                    Maintained as vendor
+                                                    @endif
+                                                @endif
+                                                </td>
+                                            </tr>
+                                            @endfor
                                         </thead>
                                     </table>
                                 </div>

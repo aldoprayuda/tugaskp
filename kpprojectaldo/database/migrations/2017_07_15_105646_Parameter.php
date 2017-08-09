@@ -22,6 +22,8 @@ class Parameter extends Migration
             $table->String('Policy');
             $table->String('HSE');
             $table->Integer('kerjasama_id')->unsigned();
+            $table->date('updated_at');
+            $table->date('created_at');
 
             $table->foreign('kerjasama_id')->references('id')->on('Kerjasama');
         });
